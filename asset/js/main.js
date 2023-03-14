@@ -49,6 +49,14 @@ nextImg.addEventListener('click', function () {
         imgCurrentVisible.classList.remove('visible')
         const nextImgEl = imgLoad[imgvisible]
         nextImgEl.classList.add('visible')
+    }else if (imgvisible == (imgLoad.length - 1)){
+        imgvisible = 0
+
+        console.log(imgCurrentVisible)
+
+        imgCurrentVisible.classList.remove('visible')
+        const nextImgEl = imgLoad[imgvisible]
+        nextImgEl.classList.add('visible')
     }
     console.log(imgCurrentVisible)
     console.log(imgvisible);
@@ -60,6 +68,13 @@ prewImg.addEventListener('click', function () {
     console.log(imgCurrentVisible)
     if (imgvisible > 0 ) {
         imgvisible --
+        imgCurrentVisible.classList.remove('visible')
+        const nextImgEl = imgLoad[imgvisible]
+        nextImgEl.classList.add('visible')
+    }else if (imgvisible == 0){
+        imgvisible = (imgLoad.length - 1)
+        console.log(imgCurrentVisible)
+
         imgCurrentVisible.classList.remove('visible')
         const nextImgEl = imgLoad[imgvisible]
         nextImgEl.classList.add('visible')
