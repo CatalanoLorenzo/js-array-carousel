@@ -1,7 +1,4 @@
-/* MILESTONE 1
-Per prima cosa, creiamo il markup statico:
-costruiamo il container e inseriamo un'immagine grande al centro: avremo così la struttura base e gli stili pronti per poterci poi concentrare solamente sull'aspetto logico.
-MILESTONE 2
+/* MILESTONE 2
 Adesso rimuoviamo tutto il markup statico e inseriamo tutte le immagini dinamicamente servendoci dell'array fornito e un semplice ciclo for che concatena un template literal.
 Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specifica che la renderà visibile.
 Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.
@@ -16,3 +13,23 @@ Consigli del giorno:
 Costruiamo del carosello una versione statica contenente solamente un'immagine. Di questa versione statica al momento opportuno commenteremo (oscureremo) alcuni elementi per poterli riprodurre dinamicamente in js. Potremo quindi usarli come "template".
 Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?" */
+
+
+
+/* MILESTONE 2
+Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specifica che la renderà visibile.
+Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.
+ */
+// inseriamo tutte le immagini dinamicamente servendoci dell'array fornito
+const carousel = [
+    '<img src="./asset/img/01.webp>"',
+    '<img src="./asset/img/02.webp>"',
+    '<img src="./asset/img/03.webp>"',
+    '<img src="./asset/img/04.webp>"',
+    '<img src="./asset/img/05.webp>"'
+]
+let imgvisible = 0
+//ciclo for che concatena un template literal
+for (let i = 0; i < carousel.length; i ++){
+    
+}

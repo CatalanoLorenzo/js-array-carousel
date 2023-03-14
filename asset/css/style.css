@@ -3,6 +3,10 @@
 }
 .carousel img{
     max-width: 100%;
+    display: none;
+}
+.visible{
+    display: block;
 }
 .carousel #top_button{
     position: absolute;
