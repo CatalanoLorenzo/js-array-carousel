@@ -5,7 +5,12 @@
     max-width: 100%;
     display: none;
 }
-.carousel .visible{
+.carousel #all_img img{
+    width: 100%;
+    height: 20%;
+    opacity: 50%;
+}
+.carousel #all_img img .visibl,.carousel .visibl{
     display: block;
 }
 .carousel #top_button{
@@ -32,4 +37,8 @@ svg{
     fill: lightgray;
     background-color: grey;
     object-fit: cover;
+}
+.carousel #all_img .primary{
+    border: 5px solid green;
+    opacity: 100%;
 }
