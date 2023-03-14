@@ -5,7 +5,7 @@
     max-width: 100%;
     display: none;
 }
-.visible{
+.carousel .visible{
     display: block;
 }
 .carousel #top_button{

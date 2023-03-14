@@ -21,15 +21,22 @@ Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specif
 Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.
  */
 // inseriamo tutte le immagini dinamicamente servendoci dell'array fornito
+const containerImgEl = document.getElementById('carol')
+const nextImg = document.getElementById('top_button')
 const carousel = [
-    '<img src="./asset/img/01.webp>"',
-    '<img src="./asset/img/02.webp>"',
-    '<img src="./asset/img/03.webp>"',
-    '<img src="./asset/img/04.webp>"',
-    '<img src="./asset/img/05.webp>"'
+    'src="./asset/img/01.webp"',
+    'src="./asset/img/02.webp"',
+    'src="./asset/img/03.webp"',
+    'src="./asset/img/04.webp"',
+    'src="./asset/img/05.webp"'
 ]
 let imgvisible = 0
 //ciclo for che concatena un template literal
 for (let i = 0; i < carousel.length; i ++){
-    
-}
+    const imgSrc = carousel[i];
+    const imgEl = `<img class="${i == imgvisible ? 'visible' : ''}" ${carousel[i]}>`
+    console.log (imgEl)
+        
+        
+        
+    }
