@@ -36,7 +36,5 @@ for (let i = 0; i < carousel.length; i ++){
     const imgSrc = carousel[i];
     const imgEl = `<img class="${i == imgvisible ? 'visible' : ''}" ${carousel[i]}>`
     console.log (imgEl)
-        
-        
-        
+    containerImgEl.insertAdjacentHTML('beforeend',imgEl)   
     }
