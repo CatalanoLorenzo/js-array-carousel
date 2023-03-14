@@ -38,14 +38,17 @@ for (let i = 0; i < carousel.length; i++) {
     containerImgEl.insertAdjacentHTML('beforeend', imgEl)
 }
 const imgLoad = document.querySelectorAll('img');
-console.log(imgLoad);
+console.log(imgvisible);
+
 nextImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
     console.log(imgCurrentVisible)
-    imgvisible++
-    imgCurrentVisible.classList.remove('visible')
+    if (imgvisible < (imgLoad.length - 1)) {
+        imgvisible++
+        imgCurrentVisible.classList.remove('visible')
+        const nextImgEl = imgLoad[imgvisible]
+        nextImgEl.classList.add('visible')
+    }
     console.log(imgCurrentVisible)
     console.log(imgvisible);
-    const nextImgEl = imgLoad[imgvisible]
-    nextImgEl.classList.add('visible')
 })
