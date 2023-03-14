@@ -34,7 +34,19 @@ let imgvisible = 0
 //ciclo for che concatena un template literal
 for (let i = 0; i < carousel.length; i ++){
     const imgSrc = carousel[i];
-    const imgEl = `<img class="${i == imgvisible ? 'visible' : ''}" ${carousel[i]}>`
-    console.log (imgEl)
+    const imgEl = `<img class="${i == imgvisible ? 'visible' : ''}" ${imgSrc}>`
     containerImgEl.insertAdjacentHTML('beforeend',imgEl)   
+}
+const imgLoad = document.querySelectorAll ('img');
+console.log(imgLoad);
+nextImg.addEventListener('click',function () {
+    const imgCurrentVisible = imgLoad[imgvisible]
+    console.log(imgCurrentVisible)
+    imgCurrentVisible.classList.remove('visible')
+    if(imgvisible < carousel.length){
+        imgvisible ++
+        console.log(imgCurrentVisible)
+        console.log(imgvisible);
     }
+    imgCurrentVisible.classList.add('visible')
+})
