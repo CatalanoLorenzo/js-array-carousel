@@ -23,6 +23,7 @@ Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella mile
 // inseriamo tutte le immagini dinamicamente servendoci dell'array fornito
 const containerImgEl = document.getElementById('carol')
 const nextImg = document.getElementById('top_button')
+const prewImg = document.getElementById('bottom_button')
 const carousel = [
     '"./asset/img/01.webp"',
     '"./asset/img/02.webp"',
@@ -38,12 +39,12 @@ for (let i = 0; i < carousel.length; i++) {
     containerImgEl.insertAdjacentHTML('beforeend', imgEl)
 }
 const imgLoad = document.querySelectorAll('img');
-console.log(imgvisible);
+console.log(imgLoad);
 
 nextImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
-    console.log(imgCurrentVisible)
     if (imgvisible < (imgLoad.length - 1)) {
+        console.log(imgCurrentVisible)
         imgvisible++
         imgCurrentVisible.classList.remove('visible')
         const nextImgEl = imgLoad[imgvisible]
@@ -51,4 +52,20 @@ nextImg.addEventListener('click', function () {
     }
     console.log(imgCurrentVisible)
     console.log(imgvisible);
+    console.log(imgLoad);
+
+})
+prewImg.addEventListener('click', function () {
+    const imgCurrentVisible = imgLoad[imgvisible]
+    console.log(imgCurrentVisible)
+    if (imgvisible > 0 ) {
+        imgvisible --
+        imgCurrentVisible.classList.remove('visible')
+        const nextImgEl = imgLoad[imgvisible]
+        nextImgEl.classList.add('visible')
+    }
+    console.log(imgCurrentVisible)
+    console.log(imgvisible);
+    console.log(imgLoad);
+
 })
