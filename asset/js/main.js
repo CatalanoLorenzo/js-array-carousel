@@ -24,29 +24,28 @@ Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella mile
 const containerImgEl = document.getElementById('carol')
 const nextImg = document.getElementById('top_button')
 const carousel = [
-    'src="./asset/img/01.webp"',
-    'src="./asset/img/02.webp"',
-    'src="./asset/img/03.webp"',
-    'src="./asset/img/04.webp"',
-    'src="./asset/img/05.webp"'
+    '"./asset/img/01.webp"',
+    '"./asset/img/02.webp"',
+    '"./asset/img/03.webp"',
+    '"./asset/img/04.webp"',
+    '"./asset/img/05.webp"'
 ]
 let imgvisible = 0
 //ciclo for che concatena un template literal
-for (let i = 0; i < carousel.length; i ++){
+for (let i = 0; i < carousel.length; i++) {
     const imgSrc = carousel[i];
-    const imgEl = `<img class="${i == imgvisible ? 'visible' : ''}" ${imgSrc}>`
-    containerImgEl.insertAdjacentHTML('beforeend',imgEl)   
+    const imgEl = `<img class="${i == imgvisible ? 'visible' : ''}" src=${imgSrc}>`
+    containerImgEl.insertAdjacentHTML('beforeend', imgEl)
 }
-const imgLoad = document.querySelectorAll ('img');
+const imgLoad = document.querySelectorAll('img');
 console.log(imgLoad);
-nextImg.addEventListener('click',function () {
+nextImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
     console.log(imgCurrentVisible)
+    imgvisible++
     imgCurrentVisible.classList.remove('visible')
-    if(imgvisible < carousel.length){
-        imgvisible ++
-        console.log(imgCurrentVisible)
-        console.log(imgvisible);
-    }
-    imgCurrentVisible.classList.add('visible')
+    console.log(imgCurrentVisible)
+    console.log(imgvisible);
+    const nextImgEl = imgLoad[imgvisible]
+    nextImgEl.classList.add('visible')
 })
