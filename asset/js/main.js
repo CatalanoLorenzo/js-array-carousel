@@ -22,8 +22,8 @@ Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella mile
  */
 // inseriamo tutte le immagini dinamicamente servendoci dell'array fornito
 const containerImgEl = document.getElementById('carol');
-const nextImg = document.getElementById('top_button');
-const prewImg = document.getElementById('bottom_button');
+const prewImg = document.getElementById('top_button');
+const nextImg = document.getElementById('bottom_button');
 const allImg = document.getElementById('all_img')
 const carousel = [
     '"./asset/img/01.webp"',
@@ -35,11 +35,13 @@ const carousel = [
 let imgvisible = 0;
 //ciclo for che concatena un template literal
 for (let i = 0; i < carousel.length; i++) {
+    const pippo = (i == imgvisible ? 'primary' : '')
+
     const imgSrc = carousel[i];
     const imgEl = `<img class="${i == imgvisible ? 'visibl primary' : ''}" src=${imgSrc}>`;
-    const allImgEl = `<img class="visibl ${i == imgvisible ? 'primary' : ''}" src=${imgSrc}>`
+    const allImgEl = `<img class="visibl ${pippo}" src=${imgSrc}>`
     containerImgEl.insertAdjacentHTML('beforeend', imgEl);
-    allImg.insertAdjacentHTML('beforeend',allImgEl);
+    allImg.insertAdjacentHTML('beforeend', allImgEl);
     console.log(allImgEl)
     console.log(imgEl);
 };
@@ -48,57 +50,38 @@ const allImgLoad = document.querySelectorAll('.carousel .container img');
 
 console.log(imgLoad);
 console.log(allImgLoad);
+
+function selectImg(imgCurrentVisible,allImgCurrentVisible) {
+    
+    allImgCurrentVisible.classList.remove('primary');
+    pippo.classList.remove('visibl');
+    const nextAllImgEl = allImgLoad[imgvisible];
+    const nextImgEl = imgLoad[imgvisible];
+    nextAllImgEl.classList.add('primary');
+    nextImgEl.classList.add('visibl');
+}
 nextImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
     const allImgCurrentVisible = allImgLoad[imgvisible]
-
     if (imgvisible < (imgLoad.length - 1)) {
         imgvisible++;
-        imgCurrentVisible.classList.remove('visibl');
-        allImgCurrentVisible.classList.remove('primary');
-        const nextAllImgEl = allImgLoad[imgvisible];
-        const nextImgEl = imgLoad[imgvisible];
-        nextImgEl.classList.add('visibl');
-        nextAllImgEl.classList.add('primary');
+        selectImg(imgCurrentVisible,allImgCurrentVisible);
         console.log(allImgLoad);
-
-
-    }else if (imgvisible == (imgLoad.length - 1)){
+    } else if (imgvisible == (imgLoad.length - 1)) {
         imgvisible = 0;
-        allImgCurrentVisible.classList.remove('primary');
-        imgCurrentVisible.classList.remove('visibl');
-        const nextAllImgEl = allImgLoad[imgvisible];
-        const nextImgEl = imgLoad[imgvisible];
-        nextImgEl.classList.add('visibl');
-        nextAllImgEl.classList.add('primary');
+        selectImg(imgCurrentVisible,allImgCurrentVisible);
         console.log(allImgLoad);
-
     };
 });
+
 prewImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
     const allImgCurrentVisible = allImgLoad[imgvisible]
-    if (imgvisible > 0 ) {
-        imgvisible --;
-        allImgCurrentVisible.classList.remove('primary');
-
-        imgCurrentVisible.classList.remove('visibl');
-        const nextAllImgEl = allImgLoad[imgvisible];
-
-        const nextImgEl = imgLoad[imgvisible];
-        nextAllImgEl.classList.add('primary');
-
-        nextImgEl.classList.add('visibl');
-    }else if (imgvisible == 0){
+    if (imgvisible > 0) {
+        imgvisible--;
+        selectImg(imgCurrentVisible,allImgCurrentVisible);
+    } else if (imgvisible == 0) {
         imgvisible = (imgLoad.length - 1);
-        allImgCurrentVisible.classList.remove('primary');
-
-        imgCurrentVisible.classList.remove('visibl');
-        const nextAllImgEl = allImgLoad[imgvisible];
-
-        const nextImgEl = imgLoad[imgvisible];
-        nextAllImgEl.classList.add('primary');
-
-        nextImgEl.classList.add('visibl');
+        selectImg(imgCurrentVisible,allImgCurrentVisible);
     };
 });
