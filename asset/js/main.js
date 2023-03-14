@@ -21,66 +21,49 @@ Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specif
 Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.
  */
 // inseriamo tutte le immagini dinamicamente servendoci dell'array fornito
-const containerImgEl = document.getElementById('carol')
-const nextImg = document.getElementById('top_button')
-const prewImg = document.getElementById('bottom_button')
+const containerImgEl = document.getElementById('carol');
+const nextImg = document.getElementById('top_button');
+const prewImg = document.getElementById('bottom_button');
 const carousel = [
     '"./asset/img/01.webp"',
     '"./asset/img/02.webp"',
     '"./asset/img/03.webp"',
     '"./asset/img/04.webp"',
     '"./asset/img/05.webp"'
-]
-let imgvisible = 0
+];
+let imgvisible = 0;
 //ciclo for che concatena un template literal
 for (let i = 0; i < carousel.length; i++) {
     const imgSrc = carousel[i];
-    const imgEl = `<img class="${i == imgvisible ? 'visible' : ''}" src=${imgSrc}>`
-    containerImgEl.insertAdjacentHTML('beforeend', imgEl)
-}
+    const imgEl = `<img class="${i == imgvisible ? 'visible' : ''}" src=${imgSrc}>`;
+    containerImgEl.insertAdjacentHTML('beforeend', imgEl);
+};
 const imgLoad = document.querySelectorAll('img');
-console.log(imgLoad);
-
 nextImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
     if (imgvisible < (imgLoad.length - 1)) {
-        console.log(imgCurrentVisible)
-        imgvisible++
-        imgCurrentVisible.classList.remove('visible')
-        const nextImgEl = imgLoad[imgvisible]
-        nextImgEl.classList.add('visible')
+        imgvisible++;
+        imgCurrentVisible.classList.remove('visible');
+        const nextImgEl = imgLoad[imgvisible];
+        nextImgEl.classList.add('visible');
     }else if (imgvisible == (imgLoad.length - 1)){
-        imgvisible = 0
-
-        console.log(imgCurrentVisible)
-
-        imgCurrentVisible.classList.remove('visible')
-        const nextImgEl = imgLoad[imgvisible]
-        nextImgEl.classList.add('visible')
-    }
-    console.log(imgCurrentVisible)
-    console.log(imgvisible);
-    console.log(imgLoad);
-
-})
+        imgvisible = 0;
+        imgCurrentVisible.classList.remove('visible');
+        const nextImgEl = imgLoad[imgvisible];
+        nextImgEl.classList.add('visible');
+    };
+});
 prewImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
-    console.log(imgCurrentVisible)
     if (imgvisible > 0 ) {
-        imgvisible --
-        imgCurrentVisible.classList.remove('visible')
-        const nextImgEl = imgLoad[imgvisible]
-        nextImgEl.classList.add('visible')
+        imgvisible --;
+        imgCurrentVisible.classList.remove('visible');
+        const nextImgEl = imgLoad[imgvisible];
+        nextImgEl.classList.add('visible');
     }else if (imgvisible == 0){
-        imgvisible = (imgLoad.length - 1)
-        console.log(imgCurrentVisible)
-
-        imgCurrentVisible.classList.remove('visible')
-        const nextImgEl = imgLoad[imgvisible]
-        nextImgEl.classList.add('visible')
-    }
-    console.log(imgCurrentVisible)
-    console.log(imgvisible);
-    console.log(imgLoad);
-
-})
+        imgvisible = (imgLoad.length - 1);
+        imgCurrentVisible.classList.remove('visible');
+        const nextImgEl = imgLoad[imgvisible];
+        nextImgEl.classList.add('visible');
+    };
+});
