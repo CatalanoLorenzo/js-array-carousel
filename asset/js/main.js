@@ -54,7 +54,7 @@ console.log(allImgLoad);
 function selectImg(imgCurrentVisible,allImgCurrentVisible) {
     
     allImgCurrentVisible.classList.remove('primary');
-    pippo.classList.remove('visibl');
+    imgCurrentVisible.classList.remove('visibl');
     const nextAllImgEl = allImgLoad[imgvisible];
     const nextImgEl = imgLoad[imgvisible];
     nextAllImgEl.classList.add('primary');
