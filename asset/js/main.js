@@ -35,11 +35,11 @@ const carousel = [
 let imgvisible = 0;
 //ciclo for che concatena un template literal
 for (let i = 0; i < carousel.length; i++) {
-    const pippo = (i == imgvisible ? 'primary' : '')
+    const opTernario = (i == imgvisible ? 'primary' : '')
 
     const imgSrc = carousel[i];
     const imgEl = `<img class="${i == imgvisible ? 'visibl primary' : ''}" src=${imgSrc}>`;
-    const allImgEl = `<img class="visibl ${pippo}" src=${imgSrc}>`
+    const allImgEl = `<img class="visibl ${opTernario}" src=${imgSrc}>`
     containerImgEl.insertAdjacentHTML('beforeend', imgEl);
     allImg.insertAdjacentHTML('beforeend', allImgEl);
     console.log(allImgEl)
