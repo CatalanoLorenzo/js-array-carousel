@@ -52,9 +52,7 @@ console.log(imgLoad);
 console.log(allImgLoad);
 
 function selectImg(imgCurrentVisible,allImgCurrentVisible) {
-    
-    allImgCurrentVisible.classList.remove('primary');
-    imgCurrentVisible.classList.remove('visibl');
+
     const nextAllImgEl = allImgLoad[imgvisible];
     const nextImgEl = imgLoad[imgvisible];
     nextAllImgEl.classList.add('primary');
@@ -63,25 +61,25 @@ function selectImg(imgCurrentVisible,allImgCurrentVisible) {
 nextImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
     const allImgCurrentVisible = allImgLoad[imgvisible]
-    if (imgvisible < (imgLoad.length - 1)) {
-        imgvisible++;
-        selectImg(imgCurrentVisible,allImgCurrentVisible);
-        console.log(allImgLoad);
-    } else if (imgvisible == (imgLoad.length - 1)) {
+        
+    allImgCurrentVisible.classList.remove('primary');
+    imgCurrentVisible.classList.remove('visibl');
+    imgvisible++;
+    if (imgvisible == imgLoad.length) {
         imgvisible = 0;
-        selectImg(imgCurrentVisible,allImgCurrentVisible);
-        console.log(allImgLoad);
-    };
+    }
+    selectImg(imgCurrentVisible,allImgCurrentVisible);
+    console.log(allImgLoad);
 });
 
 prewImg.addEventListener('click', function () {
     const imgCurrentVisible = imgLoad[imgvisible]
     const allImgCurrentVisible = allImgLoad[imgvisible]
-    if (imgvisible > 0) {
-        imgvisible--;
-        selectImg(imgCurrentVisible,allImgCurrentVisible);
-    } else if (imgvisible == 0) {
+    allImgCurrentVisible.classList.remove('primary');
+    imgCurrentVisible.classList.remove('visibl');
+    imgvisible--;
+    if (imgvisible < 0) {
         imgvisible = (imgLoad.length - 1);
-        selectImg(imgCurrentVisible,allImgCurrentVisible);
     };
+    selectImg(imgCurrentVisible,allImgCurrentVisible);
 });
